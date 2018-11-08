@@ -19,17 +19,22 @@ public class TutorialOpMode extends LinearOpMode {
     @Override
     public void runOpMode() {
         imu = hardwareMap.get(Gyroscope.class, "imu");
-        motorTest = hardwareMap.get(DcMotor.class, "motorTest");
-        digitalTouch = hardwareMap.get(DigitalChannel.class, "digitalTouch");
-        sensorColorRange = hardwareMap.get(DistanceSensor.class, "sensorColorRange");
-        servoTest = hardwareMap.get(Servo.class, "servoTest");
+        motorTest = hardwareMap.get(DcMotor.class, "motor 0 HD hex");
+        digitalTouch = hardwareMap.get(DigitalChannel.class, "touch sensor");
+        sensorColorRange = hardwareMap.get(DistanceSensor.class, "rev colour");
+        servoTest = hardwareMap.get(Servo.class, "srs0");
 
         telemetry.addData("Status", "Initialised");
         telemetry.update();
 
         waitForStart();
 
+        double tgtPower = 0;
         while(opModeIsActive()) {
+            tgtPower = this.gamepad1.left_stick_y;
+            motorTest.setPower(tgtPower);
+            telemetry.addData("Target power", tgtPower);
+            telemetry.addData("Motor power", motorTest.getPower());
             telemetry.addData("Status", "Running");
             telemetry.update();
         }

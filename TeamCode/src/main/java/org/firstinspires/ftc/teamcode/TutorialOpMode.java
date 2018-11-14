@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-import static com.sun.tools.doclint.Entity.not;
-
 @TeleOp
 public class TutorialOpMode extends LinearOpMode {
     private Gyroscope imu;

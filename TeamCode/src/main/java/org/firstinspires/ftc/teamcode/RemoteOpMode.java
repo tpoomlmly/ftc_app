@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
 
 @TeleOp
 public class RemoteOpMode extends LinearOpMode {
@@ -18,13 +19,19 @@ public class RemoteOpMode extends LinearOpMode {
         telemetry.addData("Status", "Initialised");
         telemetry.update();
 
+        motorL.setDirection(DcMotor.Direction.FORWARD);
+        motorR.setDirection(DcMotor.Direction.REVERSE);
+
         waitForStart();
 
         double powerL;
         double powerR;
         while (opModeIsActive()) {
-            powerL = this.gamepad1.left_stick_y;
-            powerR = this.gamepad1.right_stick_y;
+            double speed = -gamepad1.left_stick_y;
+            double direction =  gamepad1.right_stick_x;
+
+            powerL = Range.clip(speed + direction, -1.0, 1.0) ;
+            powerR = Range.clip(speed - direction, -1.0, 1.0) ;
 
             motorL.setPower(powerL);
             motorR.setPower(powerR);

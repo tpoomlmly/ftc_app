@@ -8,13 +8,13 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp
 public class RemoteOpMode extends LinearOpMode {
 
-    private DcMotor motorFL;
-    private DcMotor motorFR;
-    private DcMotor motorBL;
-    private DcMotor motorBR;
-
     @Override
     public void runOpMode(){
+        DcMotor motorFL;
+        DcMotor motorFR;
+        DcMotor motorBL;
+        DcMotor motorBR;
+
         motorFL = hardwareMap.get(DcMotor.class, "motor 1 HD hex");
         motorFR = hardwareMap.get(DcMotor.class, "motor 3 HD hex");
         motorBL = hardwareMap.get(DcMotor.class, "motor 2 HD hex");
@@ -23,10 +23,10 @@ public class RemoteOpMode extends LinearOpMode {
         telemetry.addData("Status", "Initialised");
         telemetry.update();
 
-        motorFL.setDirection(DcMotor.Direction.FORWARD);
-        motorFR.setDirection(DcMotor.Direction.REVERSE);
-        motorBL.setDirection(DcMotor.Direction.FORWARD);
-        motorBR.setDirection(DcMotor.Direction.REVERSE);
+        motorFL.setDirection(DcMotor.Direction.REVERSE);
+        motorFR.setDirection(DcMotor.Direction.FORWARD);
+        motorBL.setDirection(DcMotor.Direction.REVERSE);
+        motorBR.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
 

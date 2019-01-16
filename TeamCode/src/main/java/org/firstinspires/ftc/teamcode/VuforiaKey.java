@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-public class VuforiaKey {
-    public static final String VUFORIA_KEY = "AbieZB7/////AAABmUAz/E2iWEe5hIuYrYFC0iFdIi3Ca2wSEYbCOIXMa6NUrfGWd0KMO5kgsldPMso3Ev+EsdoaFyoleAU/vunsurz0y1tHAEOpUaN/jezXt9u5XXoE/6VJ74HSdiNFMyKxL5UsxY3rNG4aZ9iU0qeDgE15Z5buUsEmCTbmwdzWWTtUtXtHlLy0gbC9QT5LZq0shHc0tP3Y8tepdr5zxhCRtj72nwzheZC1cMafON+bmRxTpvLabjD93Ttt5ie/L5XW6Dv1qNuGbMAuSa+rxhcXXmuRP8ExRLvA7LQUBwHtfx2DAZEcrEqYqfSuXnBS+3HUR7N81ol7bOCZh/r/O3JXmwuzfVuJ4bXWdjsYU2ATxFm6";
+class VuforiaKey {
+    static final String VUFORIA_KEY = "AbieZB7/////AAABmUAz/E2iWEe5hIuYrYFC0iFdIi3Ca2wSEYbCOIXMa6NUrfGWd0KMO5kgsldPMso3Ev+EsdoaFyoleAU/vunsurz0y1tHAEOpUaN/jezXt9u5XXoE/6VJ74HSdiNFMyKxL5UsxY3rNG4aZ9iU0qeDgE15Z5buUsEmCTbmwdzWWTtUtXtHlLy0gbC9QT5LZq0shHc0tP3Y8tepdr5zxhCRtj72nwzheZC1cMafON+bmRxTpvLabjD93Ttt5ie/L5XW6Dv1qNuGbMAuSa+rxhcXXmuRP8ExRLvA7LQUBwHtfx2DAZEcrEqYqfSuXnBS+3HUR7N81ol7bOCZh/r/O3JXmwuzfVuJ4bXWdjsYU2ATxFm6";
 }

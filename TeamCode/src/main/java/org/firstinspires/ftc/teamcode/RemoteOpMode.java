@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp
@@ -10,42 +9,34 @@ public class RemoteOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        DcMotor motorFL;
-        DcMotor motorFR;
-        DcMotor motorBL;
-        DcMotor motorBR;
-
-        motorFL = hardwareMap.get(DcMotor.class, "motor 1 HD hex");
-        motorFR = hardwareMap.get(DcMotor.class, "motor 3 HD hex");
-        motorBL = hardwareMap.get(DcMotor.class, "motor 2 HD hex");
-        motorBR = hardwareMap.get(DcMotor.class, "motor 0 HD hex");
+        HardwareInitialiser h = new HardwareInitialiser(hardwareMap);
 
         telemetry.addData("Status", "Initialised");
         telemetry.update();
 
-        motorFL.setDirection(DcMotor.Direction.REVERSE);
-        motorFR.setDirection(DcMotor.Direction.FORWARD);
-        motorBL.setDirection(DcMotor.Direction.REVERSE);
-        motorBR.setDirection(DcMotor.Direction.FORWARD);
-
         waitForStart();
+        h.runtime.reset();
 
         double powerL;
         double powerR;
         while (opModeIsActive()) {
-            double speed = -gamepad1.left_stick_y;
-            double direction = 2*gamepad1.left_trigger - 1; //On the REV gamepad the right stick x is mapped as the left trigger
+            telemetry.addData("Running time", h.runtime.time());
+
+            //double speed = -gamepad1.left_stick_y;
+            //double direction = 2*gamepad1.left_trigger - 1; //On the REV gamepad the right stick x is mapped as the left trigger
+            double speed = gamepad1.right_trigger - gamepad1.left_trigger;
+            double direction = gamepad1.right_stick_x;
+            int armDirection = (gamepad1.a ? 1 : 0) - (gamepad1.b ? 1 : 0);
+            int rotorDirection = (gamepad1.right_bumper ? 1 : 0) - (gamepad1.left_bumper ? 1 : 0);
 
             powerL = Range.clip(speed + direction, -1.0, 1.0) ;
             powerR = Range.clip(speed - direction, -1.0, 1.0) ;
 
-            motorBL.setPower(powerL);
-            motorFL.setPower(powerL);
-            motorFR.setPower(powerR);
-            motorBR.setPower(powerR);
+            h.leftMotor.setPower(powerL);
+            h.rightMotor.setPower(powerR);
 
-            telemetry.addData("Left motor power", motorFL.getPower());
-            telemetry.addData("Right motor power", motorFR.getPower());
+            telemetry.addData("Left motor power", h.leftMotor.getPower());
+            telemetry.addData("Right motor power", h.rightMotor.getPower());
             telemetry.update();
         }
     }

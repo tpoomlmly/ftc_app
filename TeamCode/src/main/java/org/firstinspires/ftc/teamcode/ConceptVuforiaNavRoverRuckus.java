@@ -157,8 +157,7 @@ public class ConceptVuforiaNavRoverRuckus extends LinearOpMode {
         backSpace.setName("Back-Space");
 
         // For convenience, gather together all the trackable objects in one easily-iterable collection */
-        List<VuforiaTrackable> allTrackables = new ArrayList<VuforiaTrackable>();
-        allTrackables.addAll(targetsRoverRuckus);
+        List<VuforiaTrackable> allTrackables = new ArrayList<>(targetsRoverRuckus);
 
         /**
          * In order for localization to work, we need to tell the system where each target is on the field, and

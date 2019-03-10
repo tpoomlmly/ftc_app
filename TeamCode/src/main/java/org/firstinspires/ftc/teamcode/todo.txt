@@ -1,0 +1,10 @@
+Autonomous method
+(robot announces its alliance colour)
+Drive off from starting point
+Deposit mascot in zone
+Park in crater
+
+Edit lines 221-223 of Locator
+
+
+Manual control

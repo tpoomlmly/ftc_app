@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp
+@TeleOp(name = "Remote operation", group = "Competition")
 public class RemoteOpMode extends LinearOpMode {
 
     // Team no. 5
@@ -22,7 +22,6 @@ public class RemoteOpMode extends LinearOpMode {
         double powerR;
         double speed;
         double direction;
-        int armDirection;
         int rotorDirection;
         while (opModeIsActive()) {
             telemetry.addData("Running time", h.runtime.time());
@@ -31,7 +30,6 @@ public class RemoteOpMode extends LinearOpMode {
             direction = 2*gamepad1.left_trigger - 1; //On the REV gamepad the right stick x is mapped as the left trigger
             //speed = gamepad1.right_trigger - gamepad1.left_trigger;
             //direction = gamepad1.right_stick_x;
-            armDirection = (gamepad1.a ? 1 : 0) - (gamepad1.b ? 1 : 0);
             rotorDirection = (gamepad1.right_bumper ? 1 : 0) - (gamepad1.left_bumper ? 1 : 0);
 
             powerL = Range.clip(speed + direction, -1.0, 1.0) ;
@@ -39,6 +37,7 @@ public class RemoteOpMode extends LinearOpMode {
 
             h.leftMotor.setPower(powerL);
             h.rightMotor.setPower(powerR);
+            h.rotor.setPower(rotorDirection);
 
             telemetry.addData("Left motor power", h.leftMotor.getPower());
             telemetry.addData("Right motor power", h.rightMotor.getPower());

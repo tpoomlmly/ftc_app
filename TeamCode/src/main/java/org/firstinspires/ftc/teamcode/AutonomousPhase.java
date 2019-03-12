@@ -1,10 +1,28 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-@Autonomous
-public class AutonomousPhase extends LinearOpMode {
+@Autonomous(name = "Autonomous operation", group = "Competition")
+public class AutonomousPhase extends OpMode {
+
     @Override
-    public void runOpMode(){}
+    public void init() {
+    }
+
+    @Override
+    public void init_loop() {
+    }
+
+    @Override
+    public void start() {
+    }
+
+    @Override
+    public void loop() {
+    }
+
+    @Override
+    public void stop() {
+    }
 }

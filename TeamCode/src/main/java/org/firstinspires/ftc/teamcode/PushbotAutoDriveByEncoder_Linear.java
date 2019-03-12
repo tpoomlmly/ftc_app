@@ -67,14 +67,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
-    private ElapsedTime     runtime = new ElapsedTime();
+    private HardwarePushbot     robot   = new HardwarePushbot();   // Use a Pushbot's hardware
+    private ElapsedTime runtime = new ElapsedTime();
 
-    private static final double COUNTS_PER_MOTOR_REV = 2240 ;    // eg: REV HD Hex Motor Encoder
-    private static final double DRIVE_GEAR_REDUCTION = 40.0 ;     // This is < 1.0 if geared UP
-    private static final double WHEEL_DIAMETER_MM    = 90.0 ;     // For figuring circumference
-    private static final double COUNTS_PER_MM        = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-                                                       (WHEEL_DIAMETER_MM * 3.1415);
+    private static final double COUNTS_PER_REV       = 2240 ;    // eg: REV HD Hex Motor Encoder
+    private static final double WHEEL_DIAMETER_MM    = 90.0 ;     // For finding circumference
+    private static final double COUNTS_PER_MM        = COUNTS_PER_REV / (WHEEL_DIAMETER_MM * 3.1416);
     private static final double DRIVE_SPEED          = 0.6;
     private static final double TURN_SPEED           = 0.5;
 

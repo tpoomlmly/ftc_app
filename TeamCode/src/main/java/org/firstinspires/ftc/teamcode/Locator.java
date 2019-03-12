@@ -242,7 +242,7 @@ public class Locator {
     /**
      * Process the camera input. Call this to update the robot's position information.
      */
-    public void process() {
+    void process() {
         /* Start tracking the data sets we care about. */
         targetsRoverRuckus.activate();
         boolean targetVisible;

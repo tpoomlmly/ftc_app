@@ -4,8 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-class HardwareInitialiser
-{
+class HardwareInitialiser {
     DcMotor leftMotor;
     DcMotor rightMotor;
     DcMotor rotor;

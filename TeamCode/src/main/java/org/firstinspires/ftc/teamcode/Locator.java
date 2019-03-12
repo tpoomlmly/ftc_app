@@ -96,7 +96,7 @@ public class Locator {
     private VuforiaTrackables targetsRoverRuckus;
     private List<VuforiaTrackable> allTrackables = new ArrayList<>();
 
-    private String visibleTarget;
+    private String visibleTarget = "none";
 
     private VectorF pos = null;
     private Orientation rotation = null;

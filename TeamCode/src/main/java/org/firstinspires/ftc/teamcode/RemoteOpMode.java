@@ -7,11 +7,12 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp(name = "Remote operation", group = "Competition")
 public class RemoteOpMode extends LinearOpMode {
 
+    private HardwareInitialiser h;
+
     // Team no. 5
     @Override
     public void runOpMode(){
-        HardwareInitialiser h = new HardwareInitialiser(hardwareMap);
-
+        h = new HardwareInitialiser(hardwareMap);
         telemetry.addData("Status", "Initialised");
         telemetry.update();
 

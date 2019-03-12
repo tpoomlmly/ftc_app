@@ -285,9 +285,7 @@ public class Locator {
      * and getPos().get(2) contains the z value.
      * @return the robot's position in VectorF form.
      */
-    public VectorF getPos() {
-        return this.pos;
-    }
+    VectorF getPos() { return this.pos; }
 
     /**
      * Get the robot's current direction in the arena.
@@ -296,11 +294,7 @@ public class Locator {
      * and getRotation().thirdAngle() contains the yaw.
      * @return the robot's direction as an Orientation object.
      */
-    public Orientation getRotation() {
-        return this.rotation;
-    }
+    Orientation getRotation() { return this.rotation; }
 
-    public String getVisibleTarget(){
-        return this.visibleTarget;
-    }
+    String getVisibleTarget(){ return this.visibleTarget; }
 }

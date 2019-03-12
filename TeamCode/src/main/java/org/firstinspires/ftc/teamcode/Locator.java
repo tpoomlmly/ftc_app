@@ -257,7 +257,7 @@ public class Locator {
                 // getUpdatedRobotLocation() will return null if no new information is available since
                 // the last time that call was made, or if the trackable is not currently visible.
                 OpenGLMatrix robotLocationTransform = ((VuforiaTrackableDefaultListener)trackable.getListener()).getUpdatedRobotLocation();
-                if (robotLocationTransform != null) { lastLocation = robotLocationTransform; }
+                if (robotLocationTransform != null) { this.lastLocation = robotLocationTransform; }
                 break;
             }
         }
@@ -265,10 +265,10 @@ public class Locator {
         // Provide feedback as to where the robot is located (if we know).
         if (targetVisible) {
             // update the position (translation) of robot in mm.
-            this.pos = lastLocation.getTranslation();
+            this.pos = this.lastLocation.getTranslation();
 
             // update the rotation of the robot in degrees.
-            this.rotation = Orientation.getOrientation(lastLocation, EXTRINSIC, XYZ, DEGREES);
+            this.rotation = Orientation.getOrientation(this.lastLocation, EXTRINSIC, XYZ, DEGREES);
         }
         else {
             this.visibleTarget = "none";
